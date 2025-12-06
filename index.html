@@ -282,25 +282,25 @@
 
     <script>
       /* ------------------------------------------------------------------
-   0. STATE MACHINE OVERVIEW
------------------------------------------------------------------- */
+         0. STATE MACHINE OVERVIEW
+      ------------------------------------------------------------------ */
       /*
-Flow:
-intro -> wait_ready
-scenario2 (Gaza) step1 -> wait_s2_initial
-scenario2 bodyQ -> wait_s2_bodyQ
-scenario2 fabricQ -> wait_s2_fabricQ
-scenario2 caption first -> wait_s2_captionFirst
-scenario2 caption more -> wait_s2_captionMore
-transition yes -> wait_s1_continue
-scenario1 (Katy) step1 -> wait_s1_initial
-scenario1 faceQ -> wait_s1_faceQ
-scenario1 hairQ -> wait_s1_hairQ
-scenario1 bgQ -> wait_s1_bgQ
-scenario1 caption first -> wait_s1_captionFirst
-scenario1 caption more -> wait_s1_captionMore
-final -> done
-*/
+      Flow:
+      intro -> wait_ready
+      scenario2 (Gaza) step1 -> wait_s2_initial
+      scenario2 bodyQ -> wait_s2_bodyQ
+      scenario2 fabricQ -> wait_s2_fabricQ
+      scenario2 caption first -> wait_s2_captionFirst
+      scenario2 caption more -> wait_s2_captionMore
+      transition yes -> wait_s1_continue
+      scenario1 (Katy) step1 -> wait_s1_initial
+      scenario1 faceQ -> wait_s1_faceQ
+      scenario1 hairQ -> wait_s1_hairQ
+      scenario1 bgQ -> wait_s1_bgQ
+      scenario1 caption first -> wait_s1_captionFirst
+      scenario1 caption more -> wait_s1_captionMore
+      final -> done
+      */
 
       const chatLogEl = document.getElementById("chatLog");
       const chatFormEl = document.getElementById("chatForm");
@@ -311,8 +311,8 @@ final -> done
       let scenario2_caption_prefix = null;
 
       /* ------------------------------------------------------------------
-   1. UI HELPERS
------------------------------------------------------------------- */
+         1. UI HELPERS
+      ------------------------------------------------------------------ */
       function appendMessage(sender, text, options = {}) {
         const row = document.createElement("div");
         row.className = `bubble-row ${sender}`;
@@ -388,8 +388,8 @@ final -> done
       }
 
       /* ------------------------------------------------------------------
-   2. SCENARIO 1 (Katy Perry / Met Gala)  **NOW SECOND**
------------------------------------------------------------------- */
+         2. SCENARIO 1 (Katy Perry / Met Gala)  **NOW SECOND**
+      ------------------------------------------------------------------ */
 
       function botIntroQuestion() {
         // 더 짧은 여러 메시지로 분할하여 전달
@@ -400,9 +400,8 @@ final -> done
 
         appendMessage(
           "bot",
-          'Hello, I'm Racy, your AI assistant here to help you critically evaluate online content. Although I draw on extensive training data and advanced language models, I want to be upfront. I can make mistakes; I sometimes misinterpret nuance and overlook important context.',
+          "Hello, I'm Racy, your AI assistant here to help you critically evaluate online content. Although I draw on extensive training data and advanced language models, I want to be upfront. \n\nI can make mistakes. I sometimes misinterpret nuance and overlook important context.",
           { html: true }
-        );
         );
 
         appendMessage("bot", "Ready to start?", {
@@ -668,8 +667,8 @@ final -> done
       }
 
       /* ------------------------------------------------------------------
-   3. SCENARIO 2 (Gaza image)  **NOW FIRST**
------------------------------------------------------------------- */
+         3. SCENARIO 2 (Gaza image)  **NOW FIRST**
+      ------------------------------------------------------------------ */
 
       function showScenario2_initialQ() {
         appendMessage(
@@ -871,8 +870,8 @@ final -> done
       }
 
       /* ------------------------------------------------------------------
-   4. FINAL CHECKLIST / END
------------------------------------------------------------------- */
+         4. FINAL CHECKLIST / END
+      ------------------------------------------------------------------ */
 
       function finalChecklist() {
         appendMessage(
@@ -979,8 +978,8 @@ final -> done
       }
 
       /* ------------------------------------------------------------------
-   5. NATURAL LANGUAGE PARSER (normalizeInput) + STATE MAPPING
------------------------------------------------------------------- */
+         5. NATURAL LANGUAGE PARSER (normalizeInput) + STATE MAPPING
+      ------------------------------------------------------------------ */
 
       // break text into tokens like ["um","not","at","all"]
       function tokenize(str) {
@@ -1244,8 +1243,8 @@ final -> done
       }
 
       /* ------------------------------------------------------------------
-   6. INPUT HANDLER
------------------------------------------------------------------- */
+         6. INPUT HANDLER
+      ------------------------------------------------------------------ */
       function handleUserInput(rawInput) {
         const txt = rawInput.trim();
         if (!txt) return;
@@ -1359,8 +1358,8 @@ final -> done
       }
 
       /* ------------------------------------------------------------------
-   7. BOOTSTRAP FIRST MESSAGE + INPUT EVENTS
------------------------------------------------------------------- */
+         7. BOOTSTRAP FIRST MESSAGE + INPUT EVENTS
+      ------------------------------------------------------------------ */
       // ✅ 바로 첫 메시지로 인트로(정직한 고지) 표시
       botIntroQuestion();
 
